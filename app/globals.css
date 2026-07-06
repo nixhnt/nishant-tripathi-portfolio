@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html,
+body {
+  @apply bg-paper-50 text-ink-900 dark:bg-base-950 dark:text-paper-50;
+  font-family: var(--font-body);
+}
+
+::selection {
+  @apply bg-signal-400/30 text-inherit;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-signal-500/40 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-signal-500/70;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid theme("colors.signal.400");
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Glassmorphism surface */
+.glass {
+  @apply bg-white/60 dark:bg-white/[0.04] backdrop-blur-xl border border-black/5 dark:border-white/10;
+}
+
+.glass-strong {
+  @apply bg-white/80 dark:bg-base-900/70 backdrop-blur-2xl border border-black/5 dark:border-white/10;
+}
+
+/* Section label / eyebrow */
+.eyebrow {
+  @apply font-mono text-xs uppercase tracking-[0.25em] text-signal-600 dark:text-signal-400;
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(120deg, #38d9f0 0%, #7eebff 45%, #4ade9c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+}
+
+/* Section container rhythm */
+.section {
+  @apply relative mx-auto w-full max-w-6xl px-6 py-24 sm:px-8 lg:px-10;
+}
+
+/* Terminal blinking cursor */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  margin-left: 2px;
+  background: currentColor;
+  animation: blink 1s step-end infinite;
+}

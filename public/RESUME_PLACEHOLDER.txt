@@ -1,0 +1,3 @@
+Add your actual resume PDF at: public/resume.pdf
+The "Download Resume" button in the Hero section links to /resume.pdf.
+Once you add the real file, you can delete this placeholder note.
